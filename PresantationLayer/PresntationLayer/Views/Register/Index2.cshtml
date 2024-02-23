@@ -1,0 +1,82 @@
+﻿@using EntityLayer.Concrete
+@model Company
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>EcoCyle | Register Step 2</title>
+
+    <link href="~/admin/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/admin/font-awesome/css/font-awesome.css" rel="stylesheet">
+
+    <link href="~/admin/css/animate.css" rel="stylesheet">
+    <link href="~/admin/css/style.css" rel="stylesheet">
+
+</head>
+
+<body class="gray-bg">
+
+    <div class="loginColumns animated fadeInDown">
+        <div class="row">
+            <div class="col-md-6">
+                <h2 class="font-bold" style="color:red">Attention!</h2>
+
+                <p style ="color:black">
+                  Welcome to step 2. Please review the company information carefully, as it cannot be changed once submitted.
+                </p>
+
+
+
+            </div>
+
+            <div class="col-md-6">
+                <div class="ibox-content">
+                    @using (Html.BeginForm("Index2", "Register", FormMethod.Post))
+                    {
+                       @Html.TextBoxFor(x => x.CompanyName, new { @class = "form-control", @placeholder = "Company Name" })
+                    <p style="color:red">@Html.ValidationMessageFor(x => x.CompanyName) </p>
+
+                    @Html.TextBoxFor(x => x.Country, new { @class = "form-control", @placeholder = "Country" })
+                    <p style="color:red">@Html.ValidationMessageFor(x => x.Country) </p>
+
+                    @Html.TextBoxFor(x => x.City, new { @class = "form-control", @placeholder = "City" })
+                    <p style="color:red">@Html.ValidationMessageFor(x => x.City) </p>
+
+                    @Html.TextBoxFor(x => x.CompanyMail, new { @class = "form-control", @placeholder = "Company Mail" })
+                    <p style="color:red">@Html.ValidationMessageFor(x => x.CompanyMail) </p>
+
+                    @Html.TextBoxFor(x => x.CompanyPhoneNumber, new { @class = "form-control", @placeholder = "Company Phone" })
+                    <p style="color:red">@Html.ValidationMessageFor(x => x.CompanyPhoneNumber) </p>
+
+                        <button type="submit" class="btn btn-primary block full-width m-b">Register</button>
+                    }
+
+
+                </div>
+            </div>
+        </div>
+        <hr />
+        <div class="row">
+            <div class="col-md-6">
+                Copyright EcoCycle
+            </div>
+            <div class="col-md-6 text-right">
+                <small>© 2024</small>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+

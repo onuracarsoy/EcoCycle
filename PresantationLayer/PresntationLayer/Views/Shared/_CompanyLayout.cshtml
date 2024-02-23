@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+
+    @await Component.InvokeAsync("_CompanyLayoutHeaderPartial")
+
+</head>
+
+<body class="">
+
+    <div id="wrapper">
+
+        @await Component.InvokeAsync("_CompanyLayoutSidebarPartial")
+     
+
+        <div id="page-wrapper" class="gray-bg">
+            <div class="row border-bottom">
+                @await Component.InvokeAsync("_CompanyLayoutNavbarPartial")
+     
+            </div>
+        
+
+            <div class="wrapper wrapper-content">
+                @RenderBody()
+            </div>
+
+
+            <div class="footer">
+
+                <div>
+                    <strong>Copyright</strong> EcoCyle &copy; @DateTime.Now.Year
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    @await Component.InvokeAsync("_CompanyLayoutScriptPartial")
+
+
+</body>
+
+</html>

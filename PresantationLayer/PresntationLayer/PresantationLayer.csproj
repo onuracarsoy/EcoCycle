@@ -1,0 +1,53 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\homepage\css\.DS_Store" />
+    <None Include="wwwroot\homepage\images\.DS_Store" />
+    <None Include="wwwroot\homepage\js\.DS_Store" />
+    <None Include="wwwroot\homepage\js\revolution\.DS_Store" />
+    <None Include="wwwroot\homepage\js\revolution\js\.DS_Store" />
+    <None Include="wwwroot\html 4-2\.DS_Store" />
+    <None Include="wwwroot\html 4-2\css\.DS_Store" />
+    <None Include="wwwroot\html 4-2\images\.DS_Store" />
+    <None Include="wwwroot\html 4-2\js\.DS_Store" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="11.9.0" />
+    <PackageReference Include="FluentValidation.AspNetCore" Version="11.3.0" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.9.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.QuickGrid.EntityFrameworkAdapter" Version="8.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.1" />
+    <PackageReference Include="X.PagedList" Version="8.4.7" />
+    <PackageReference Include="X.PagedList.Mvc.Bootstrap4" Version="8.1.0" />
+    <PackageReference Include="X.PagedList.Mvc.Core" Version="8.4.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\BussinesLayer\BussinesLayer\BussinesLayer.csproj" />
+    <ProjectReference Include="..\..\DataAccessLayer\DataAccessLayer\DataAccessLayer.csproj" />
+    <ProjectReference Include="..\..\EntityLayer\EntityLayer\EntityLayer.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\homepage\icon\" />
+    <Folder Include="wwwroot\html 4-2\fonts\" />
+  </ItemGroup>
+
+</Project>

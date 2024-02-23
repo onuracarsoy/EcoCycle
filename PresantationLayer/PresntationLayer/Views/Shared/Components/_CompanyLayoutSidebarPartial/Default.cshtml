@@ -1,0 +1,87 @@
+﻿@using EntityLayer.Concrete
+@model Company
+<nav class="navbar-default navbar-static-side" role="navigation">
+    <div class="sidebar-collapse">
+        <ul class="nav metismenu" id="side-menu">
+            <li class="nav-header">
+                <div class="dropdown profile-element">
+
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <span class="block m-t-xs font-bold"><h3>Welcome @Model.CompanyName</h3></span>
+
+                    </a>
+
+                </div>
+
+            </li>
+
+            <li>
+                <a href="index.html"><i class="fa fa-tachometer"></i> <span class="nav-label">Dashboard</span> <span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse">
+                    <li>
+                        <a href="/Dashboard/Index">
+                            Company
+                            Statistics
+                        </a>
+                        <a href="/Dashboard/Index2">
+                            Nature Conservation
+                            Statistics
+                        </a>
+
+
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="index.html">
+                    <i class="fa fa-trophy"></i> <span class="nav-label"> Product Operations </span> <span class="fa arrow"></span>
+                </a>
+                <ul class="nav nav-second-level collapse">
+                    <li>
+                        <a href="index.html">
+                            <i class="fa fa-android"></i> <span class="nav-label"> AI </span> <span class="fa arrow"></span>
+                        </a>
+                        <ul class="nav nav-second-level collapse">
+                            <li><a href="https://colab.research.google.com/drive/1NwnKeO8cZbJOcLRYNluo1_PelMMV07MF?authuser=2#scrollTo=Local_Machine_Video">AI Settings</a></li>
+                            <li><a href="/Product/Index2">All List or Update</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="index.html">
+                            <i class="fa fa-hand-paper-o"></i> <span class="nav-label"> Manuel </span> <span class="fa arrow"></span>
+                        </a>
+                        <ul class="nav nav-second-level collapse">
+                            <li><a href="/Product/Index">All List or Update</a></li>
+                            <li><a href="/Product/AddProduct">Add</a></li>
+
+                        </ul>
+                    </li>
+
+                </ul>
+            </li>
+
+            <li>
+                <a href="index.html"><i class="fa fa-shopping-cart"></i> <span class="nav-label">Buying Operation</span> <span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse">
+                    <li><a href="/Sales/Index">Sales</a></li>
+
+
+                </ul>
+            </li>
+
+            <li>
+                <a href="index.html"><i class="fa fa-cog"></i> <span class="nav-label">Settings</span> <span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse">
+                    <li><a href="/Account/Index">Company Information</a></li>
+                    <li><a href="/Account/PersonAccount">Person Information</a></li>
+                    <li><a href="/Account/ChangePassword"> Change Password</a></li>
+
+                </ul>
+            </li>
+        </ul>
+
+    </div>
+</nav>
+

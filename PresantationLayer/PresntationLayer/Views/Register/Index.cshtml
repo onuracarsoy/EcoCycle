@@ -1,0 +1,147 @@
+﻿@using DtoLayer.Dtos.AppUserDtos
+@model AppUserRegisterDto
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>EcoCycle | Register</title>
+
+    <link href="~/admin/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/admin/font-awesome/css/font-awesome.css" rel="stylesheet">
+
+    <link href="~/admin/css/animate.css" rel="stylesheet">
+    <link href="~/admin/css/style.css" rel="stylesheet">
+    <!-- SweetAlert CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11">
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <!-- SweetAlert JS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <style>
+        .swal2-popup {
+            width: 80%; 
+        }
+        .swal2-title,
+        .swal2-content {
+            text-align: left !important;
+        }
+    </style>
+   
+
+</head>
+
+<body class="gray-bg">
+
+    <div class="loginColumns animated fadeInDown">
+        <div class="row">
+
+            <div class="col-md-6">
+                <h2 class="font-bold">Welcome to <a href="/Home/Index" style="color:green">EcoCycle</a></h2>
+
+                <p>
+                    Register now to access our cutting-edge industrial waste management solutions. Join a community committed to reshaping the future of waste, promoting environmental sustainability, and unlocking economic advantages. Let's build a greener, more connected world together.
+                </p>
+
+           
+
+            </div>
+            <div class="col-md-6">
+                <div class="ibox-content">
+                    @using (Html.BeginForm("Index", "Register", FormMethod.Post))
+                    {
+                        @Html.TextBoxFor(x => x.Name, new { @class = "form-control", @placeholder = "Name" })
+                        <p style="color:red">@Html.ValidationMessageFor(x => x.Name) </p>
+
+                        @Html.TextBoxFor(x => x.Surname, new { @class = "form-control", @placeholder = "Surname" })
+                        <p style="color:red">@Html.ValidationMessageFor(x => x.Surname) </p>
+
+                        @Html.TextBoxFor(x => x.Username, new { @class = "form-control", @placeholder = "Username" })
+                        <p style="color:red">@Html.ValidationMessageFor(x => x.Username) </p>
+
+                        @Html.TextBoxFor(x => x.Email, new { @class = "form-control", @placeholder = "Email" })
+                        <p style="color:red">@Html.ValidationMessageFor(x => x.Email) </p>
+                        <p style="color:red">@ViewBag.Email </p>
+
+                        @Html.TextBoxFor(x => x.Password, new { @class = "form-control", @placeholder = "Password", @type = "password" })
+                        <p style="color:red">@Html.ValidationMessageFor(x => x.Password) </p>
+                        <p style="color:limegreen">Your password for your account security,</p>
+                        <p style="color:limegreen"> at least one uppercase letter, </p>
+                        <p style="color:limegreen"> at least one digit,</p>
+                        <p style="color:limegreen"> must contain at least one alphanumeric character! </p>
+            
+                        @Html.TextBoxFor(x => x.ConfirmPassword, new { @class = "form-control", @placeholder = "Confirm Password", @type = "password" })
+                        <p style="color:red">@Html.ValidationMessageFor(x => x.ConfirmPassword) </p>
+
+                        <a  style ="color: blue"id="privacyPolicyBtn">Privacy Policy</a>
+                        <br />
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                       
+                        
+                        <button type="submit" class="btn btn-primary block full-width m-b ">Register</button>
+                    }
+         
+
+                </div>
+            </div>
+        </div>
+        <hr />
+        <div class="row">
+            <div class="col-md-6">
+                Copyright EcoCycle
+            </div>
+            <div class="col-md-6 text-right">
+                <small>© 2024</small>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            $("#privacyPolicyBtn").click(function () {
+                Swal.fire({
+                    title: 'Privacy Policy',
+                    html: `
+                            <p>This page informs you of our policies regarding the collection, use, and disclosure of Personal Information when you use our Service. We collect several different types of information for various purposes to provide and improve our service to you.</p>
+                            <ol>
+                                <li><strong>Personal Data:</strong> While using our Service, we may ask you to provide us with certain personally identifiable information that can be used to contact or identify you. Personally identifiable information may include, but is not limited to: Name, Email address, Phone number, Company name.</li>
+                                <li><strong>We use the collected data for various purposes:</strong>
+                                    <ul>
+                                        <li>To provide and maintain our service</li>
+                                        <li>To notify you about changes to our service</li>
+                                        <li>To allow you to participate in interactive features of our Service when you choose to do so</li>
+                                        <li>To provide customer support</li>
+                                        <li>To gather analysis or valuable information so that we can improve our Service</li>
+                                        <li>To monitor the usage of our Service</li>
+                                        <li>To detect, prevent and address technical issues</li>
+                                    </ul>
+                                </li>
+                                <li><strong>We may share your Personal Information with third-party companies or individuals in the following circumstances:</strong>
+                                    <ul>
+                                        <li>With your consent</li>
+                                        <li>To comply with legal obligations</li>
+                                        <li>To protect and defend our rights or property</li>
+                                    </ul>
+                                </li>
+                            </ol>
+                            <p>The security of your data is important to us, but remember that no method of transmission over the Internet, or method of electronic storage is.</p>
+                        `,
+                    confirmButtonText: 'Okay'
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
+

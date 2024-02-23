@@ -1,0 +1,99 @@
+﻿@using PresantationLayer.Models
+@model ResultSalesViewModel
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_CompanyLayout.cshtml";
+}
+
+
+<div class="col-lg-16">
+    <div class="ibox ">
+        <div class="ibox-title">
+            <h5>Product Information</h5>
+
+        </div>
+        <div class="ibox-content">
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Description</th>
+                        <th>Count</th>
+                        <th>Weigth</th>
+                        <th>Weigth Type</th>
+                        <th>Price</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr>
+                        <td>@Model.ProductName</td>
+                        <td>@Model.ProductDescription</td>
+                        <td>@Model.ProductCount</td>
+                        <td>@Model.ProductWeigth</td>
+                        <td>@Model.ProductWeigthType</td>
+                        <td>@Model.ProductPrice</td>
+                        <td>@Model.Date</td>
+                        <td>
+                            @if (Model.Status == false)
+                            {
+                                <span class="label label-primary">
+                                    Manuel
+                                </span>
+                            }
+                            else
+                            {
+                                <span class="label label-success">
+                                    AI
+                                </span>
+                            }
+                        </td>
+
+                    </tr>
+
+
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+    <div class="ibox ">
+        <div class="ibox-title">
+            <h5>Company Information </h5>
+
+        </div>
+        <div class="ibox-content">
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Company Name</th>
+                        <th>Country, City</th>
+                        <th>Email</th>
+                        <th>Phone Number</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr>
+                        <td>@Model.CompanyName</td>
+                        <td>@Model.Country, @Model.City</td>
+                        <td>@Model.CompanyMail</td>
+                        <td>@Model.CompanyPhoneNumber</td>
+
+                    </tr>
+
+
+
+                </tbody>
+            </table>
+
+        </div>
+
+
+    </div>
+</div>

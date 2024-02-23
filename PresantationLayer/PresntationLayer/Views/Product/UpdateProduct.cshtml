@@ -1,0 +1,206 @@
+﻿@using EntityLayer.Concrete
+@model Product
+@{
+    ViewData["Title"] = "UpdateProduct";
+    Layout = "~/Views/Shared/_CompanyLayout.cshtml";
+}
+
+@* <div class="row">
+    <div class="col-lg-12">
+        <div class="ibox ">
+            <div class="ibox-title">
+                <h5>Update Product</h5>
+            </div>
+            <div class="ibox-content">
+                @using (Html.BeginForm("UpdateProduct", "Product", FormMethod.Post))
+                {
+                    @Html.HiddenFor(x => x.CompanyID, new { @class = "form-control" })
+                    @Html.HiddenFor(x => x.ProductID, new { @class = "form-control" })
+                    @Html.HiddenFor(x => x.Date, new { @class = "form-control" })
+                    @Html.HiddenFor(x => x.Status, new { @class = "form-control" })
+
+                    @Html.TextBoxFor(x => x.ProductName, new { @class = "form-control", @placeholder = "Product Name" })
+                    <p style="color:red">@Html.ValidationMessageFor(x => x.ProductName) </p>
+
+                    @Html.TextBoxFor(x => x.ProductCount, new { @class = "form-control", @placeholder = "Count", @type="number"})
+                    <p style="color:red">@Html.ValidationMessageFor(x => x.ProductCount) </p>
+
+                    @Html.TextBoxFor(x => x.ProductWeigth, new { @class = "form-control", @placeholder = "Weigth", @type = "number" })
+                    <p style="color:red">@Html.ValidationMessageFor(x => x.ProductWeigth) </p>
+
+                    <select name="ProductWeigthType" class="form-control">
+                        <option value="@Model.ProductWeigthType" selected>@Model.ProductWeigthType</option>
+                        <option value="Gram">Gram</option>
+                        <option value="Kilogram">Kilogram</option>
+                        <option value="Ton">Ton</option>
+
+                    </select>
+                    <br />
+                    @Html.TextBoxFor(x => x.ProductPrice, new { @class = "form-control", @placeholder = "Price", @type = "number" })
+                    <p style="color:red">@Html.ValidationMessageFor(x => x.ProductPrice) </p>
+
+
+                    <button type="submit" class="btn btn-warning">Update & Save</button>
+                }
+
+            </div>
+        </div>
+    </div>
+</div> *@
+
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>Product Update</h2>
+
+    </div>
+</div>
+
+<div class="wrapper wrapper-content animated fadeInRight ecommerce">
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="tabs-container">
+                <ul class="nav nav-tabs">
+                    <li><a class="nav-link active" data-toggle="tab" href="#tab-1"> Product info</a></li>
+                    <li><a class="nav-link" data-toggle="tab" href="#tab-2"> Data</a></li>
+                </ul>
+                @using (Html.BeginForm("UpdateProduct", "Product", FormMethod.Post))
+                {
+                    <div class="tab-content">
+
+                        <div id="tab-1" class="tab-pane active">
+                            <div class="panel-body">
+
+                                <fieldset>
+                                    
+                                    @Html.HiddenFor(x => x.CompanyID, new { @class = "form-control" })
+                                    @Html.HiddenFor(x => x.ProductID, new { @class = "form-control" })
+                                    @Html.HiddenFor(x => x.Date, new { @class = "form-control" })
+                                    @Html.HiddenFor(x => x.Status, new { @class = "form-control" })
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Name :</label>
+                                        <div class="col-sm-10">
+                                            @Html.TextBoxFor(x => x.ProductName, new { @class = "form-control", @placeholder = "Product Name" })
+                                        </div>
+                                        <div class="col-sm-10">
+                                            <p style="color:red">@Html.ValidationMessageFor(x => x.ProductName) </p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Price:</label>
+                                        <div class="col-sm-10">
+                                            @Html.TextBoxFor(x => x.ProductPrice, new { @class = "form-control", @placeholder = "Price", @type = "number" })
+                                        </div>
+                                        <div class="col-sm-10">
+                                            <p style="color:red">@Html.ValidationMessageFor(x => x.ProductPrice) </p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Description :</label>
+                                        <div class="col-sm-10">
+                                            @Html.TextAreaFor(x => x.ProductDescription, new { @class = "form-control", @placeholder = "Description" })
+                                        </div>
+                                         <div class="col-sm-10">
+                                    <p style="color:red">@Html.ValidationMessageFor(x => x.ProductDescription) </p>
+                                    </div>
+                                    </div>
+                                    @*  <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Description:</label>
+                                <div class="col-sm-10">
+                                <div class="summernote">
+                                <h3>Lorem Ipsum is simply</h3>
+                                dummy text of the printing and typesetting industry. <strong>Lorem Ipsum has been the industry's</strong> standard dummy text ever since the 1500s,
+                                when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic
+                                when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic
+                                typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with
+                                <br />
+
+                                </div>
+                                </div>
+                                </div>
+                                *@
+                                </fieldset>
+
+                            </div>
+                        </div>
+                        <div id="tab-2" class="tab-pane">
+                            <div class="panel-body">
+
+                                <fieldset>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Product Count : </label>
+                                        <div class="col-sm-10">
+                                            @Html.TextBoxFor(x => x.ProductCount, new { @class = "form-control", @placeholder = "Count", @type = "number" })
+                                        </div>
+                                        <div class="col-sm-10">
+                                            <p style="color:red">@Html.ValidationMessageFor(x => x.ProductCount) </p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Weight :</label>
+                                        <div class="col-sm-10">
+                                            @Html.TextBoxFor(x => x.ProductWeigth, new { @class = "form-control", @placeholder = "Weight", @type = "number" })
+                                        </div>
+                                        <div class="col-sm-10">
+                                            <p style="color:red">@Html.ValidationMessageFor(x => x.ProductWeigth) </p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Weight Type :</label>
+                                        <div class="col-sm-10">
+                                            <select name="ProductWeigthType" class="form-control">
+                                                <option value="@Model.ProductWeigthType" selected>@Model.ProductWeigthType (Default)</option>
+                                                <option value="Gram">Gram</option>
+                                                <option value="Kilogram">Kilogram</option>
+                                                <option value="Ton">Ton</option>
+
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-10">
+                                            <p style="color:red">@Html.ValidationMessageFor(x => x.ProductWeigthType) </p>
+                                        </div>
+                                    </div>
+
+
+                                </fieldset>
+
+
+                            </div>
+                        </div>
+                        <br />
+                        <button type="submit" class="btn btn-warning">Update & Save</button>
+
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- Custom and plugin javascript -->
+<script src="~/admin/js/inspinia.js"></script>
+<script src="~/admin/js/plugins/pace/pace.min.js"></script>
+
+<!-- SUMMERNOTE -->
+<script src="~/admin/js/plugins/summernote/summernote-bs4.js"></script>
+
+<!-- Data picker -->
+<script src="~/admin/js/plugins/datapicker/bootstrap-datepicker.js"></script>
+
+<script>
+    $(document).ready(function () {
+
+        $('.summernote').summernote();
+
+        $('.input-group.date').datepicker({
+            todayBtn: "linked",
+            keyboardNavigation: false,
+            forceParse: false,
+            calendarWeeks: true,
+            autoclose: true
+        });
+
+    });
+</script>

@@ -1,0 +1,44 @@
+﻿@using DtoLayer.Dtos.AppUserDtos
+@model AppUserEditDto
+@{
+    ViewData["Title"] = "PersonAccount";
+    Layout = "~/Views/Shared/_CompanyLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="ibox ">
+            <div class="ibox-title">
+                <h5>Person Information </h5>
+            </div>
+            <div class="ibox-content">
+                @using (Html.BeginForm("PersonAccount", "Account", FormMethod.Post))
+                {
+            
+
+                    @Html.TextBoxFor(x => x.Name, new { @class = "form-control", @placeholder = "Name" })
+                    <p style="color:red">@Html.ValidationMessageFor(x => x.Name) </p>
+
+                    @Html.TextBoxFor(x => x.Surname, new { @class = "form-control", @placeholder = "Surname" })
+                    <p style="color:red">@Html.ValidationMessageFor(x => x.Surname) </p>
+
+                    @Html.TextBoxFor(x => x.Email, new { @class = "form-control", @placeholder = "Email" })
+                    <p style="color:red">@Html.ValidationMessageFor(x => x.Email) </p>
+
+                    @Html.TextBoxFor(x => x.Password, new { @class = "form-control", @placeholder = "Password", @type = "password" })
+                    <p style="color:red">@Html.ValidationMessageFor(x => x.Password) </p>
+                    <p style="color:red"> @ViewBag.checkPassword</p>
+
+                    @Html.TextBoxFor(x => x.ConfirmPassword, new { @class = "form-control", @placeholder = "Confirm Password", @type = "password" })
+                    <p style="color:red">@Html.ValidationMessageFor(x => x.ConfirmPassword) </p>
+       
+                   
+
+                    <button type="submit" class="btn btn-warning">Update & Save</button>
+                }
+
+            </div>
+        </div>
+    </div>
+</div>
+

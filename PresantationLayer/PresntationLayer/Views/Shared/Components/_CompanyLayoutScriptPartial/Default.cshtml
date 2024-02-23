@@ -1,0 +1,22 @@
+﻿<script src="~/admin/js/jquery-3.1.1.min.js"></script>
+<script src="~/admin/js/popper.min.js"></script>
+<script src="~/admin/js/bootstrap.js"></script>
+<script src="~/admin/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="~/admin/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+<!-- Custom and plugin javascript -->
+<script src="~/admin/js/inspinia.js"></script>
+<script src="~/admin/js/plugins/pace/pace.min.js"></script>
+
+
+
+<script>
+    jQuery(document).ready(function ($) {
+        $("#filter").submit(function () {
+            $(this).find(":input").filter(function () { return !this.value; }).attr("disabled", "disabled");
+            return true;
+        });
+
+        $("form").find(":input").prop("disabled", false);
+    });
+</script>

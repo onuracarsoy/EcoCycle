@@ -1,0 +1,143 @@
+﻿@using EntityLayer.Concrete
+@using X.PagedList
+@using X.PagedList.Mvc.Core
+@using X.PagedList.Mvc.Bootstrap4.Core
+@model IPagedList<Product>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_CompanyLayout.cshtml";
+}
+
+<div class="ibox ">
+    <div class="ibox-title">
+        <h5>Filters <small></small></h5>
+        <div class="ibox-tools">
+            <a class="collapse-link">
+                <i class="fa fa-chevron-up"></i>
+            </a>
+        </div>
+    </div>
+    <div class="ibox-content m-b-sm border-bottom">
+
+        <form method="get" id="filter">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label class="col-form-label" for="product_name">Product Name</label>
+                        <input type="text" name="ProductName" value="@ViewBag.ProductName" placeholder="Product Name" class="form-control">
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label class="col-form-label" for="price">Min Price</label>
+                        <input type="text" name="ProductPrice" value="@ViewBag.ProductPrice" placeholder="Min Price" class="form-control">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label class="col-form-label" for="quantity">Min Count</label>
+                        <input type="text" name="ProductCount" value="@ViewBag.ProductCount" placeholder="Min Count" class="form-control">
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label class="col-form-label" for="weight">Min Weight</label>
+                        <input type="text" name="ProductWeigth" value="@ViewBag.ProductWeigth" placeholder="Min Weight" class="form-control">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label class="col-form-label" for="weight_type">Weight Type</label>
+                        <select name="ProductWeigthType" class="form-control">
+                            <option value="" selected disabled>Select Weight Type</option>
+                            <option value="Gram">Gram</option>
+                            <option value="Kilogram">Kilogram</option>
+                            <option value="Ton">Ton</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <button class="btn btn-primary">Filter</button>
+        </form>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="ibox">
+            <div class="ibox-content">
+
+                <table class="footable table table-stripped toggle-arrow-tiny" data-page-size="15">
+                    <thead>
+                        <tr>
+
+                            <th data-toggle="true">Product Name</th>
+                            <th data-hide="phone">Count</th>
+                            <th data-hide="phone">Price</th>
+                            <th data-hide="phone,tablet">Weigth</th>
+                            <th data-hide="phone,tablet">Weigth Type</th>
+                            <th data-hide="phone">Status</th>
+                            <th class="text-right" data-sort-ignore="true">Details</th>
+                            <th class="text-right" data-sort-ignore="true">Purchase</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @item.ProductName
+                                </td>
+                                <td>
+                                    @item.ProductCount
+                                </td>
+                                <td>
+                                    @item.ProductPrice
+                                </td>
+                                <td>
+                                    @item.ProductWeigth
+                                </td>
+                                <td>
+                                    @item.ProductWeigthType
+                                </td>
+                                <td>
+
+                                    @if (item.Status == false)
+                                    {
+                                        <span class="label label-primary">
+                                            Manuel
+                                        </span>
+                                    }
+                                    else
+                                    {
+                                        <span class="label label-success">
+                                            AI
+                                        </span>
+                                    }
+
+                                </td>
+                                <td class="text-right">
+                                    <a class="btn btn-dark " href="/Sales/Details/@item.ProductID">Details</a>
+                                </td>
+                                <td class="text-right">
+                                    <a class="btn btn-primary " href="/Sales/Purchase/@item.ProductID">Purchase</a>
+                                </td>
+                            </tr>
+                        }
+
+                </table>
+                @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }), Bootstrap4PagedListRenderOptions.ClassicPlusFirstAndLast)
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+

@@ -1,0 +1,107 @@
+﻿@{
+    ViewData["Title"] = "Purchase";
+    Layout = "~/Views/Shared/_CompanyLayout.cshtml";
+}
+<head>
+
+    <link href="~/admin/css/plugins/toastr/toastr.min.css" rel="stylesheet">
+
+</head>
+
+
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <div class="float-right">
+            <i class="fa fa-cc-amex text-success"></i>
+            <i class="fa fa-cc-mastercard text-warning"></i>
+            <i class="fa fa-cc-discover text-danger"></i>
+        </div>
+        <h5 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Credit Card</a>
+        </h5>
+    </div>
+    <div class="panel-collapse ">
+        <div class="panel-body">
+
+            <div class="row">
+                <div class="col-md-4">
+                    <h2>
+                        Payment information
+                    </h2>
+                    <strong>Product:</strong> @ViewBag.ProductName <br />
+                    <strong>Price:</strong> <span class="text-navy">$@ViewBag.ProductPrice</span>
+
+                    <h2>
+
+                        Seller's company information
+                    </h2>
+                    <strong>Company:</strong> @ViewBag.CompanyName <br />
+                    <strong>Mail:</strong> <span>@ViewBag.Mail</span>
+                    <br>
+                    <strong>Phone:</strong> <span>@ViewBag.Phone</span>
+
+
+                </div>
+                <div class="col-md-8">
+
+                    <form method="post" role="form" id="payment-form">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label>CARD NUMBER</label>
+                                    <div class="input-group">
+                                        <input type="number" class="form-control" name="Number" placeholder="Valid Card Number" required />
+                                        <span class="input-group-addon"><i class="fa fa-credit-card"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-7 col-md-7">
+                                <div class="form-group">
+                                    <label>EXPIRATION DATE</label>
+                                    <input type="number" class="form-control" name="Expiry" placeholder="MM / YY" required />
+                                </div>
+                            </div>
+                            <div class="col-5 col-md-5 float-right">
+                                <div class="form-group">
+                                    <label>CV CODE</label>
+                                    <input type="number" class="form-control" name="CVC" placeholder="CVC" required />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label>NAME OF CARD</label>
+                                    <input type="text" class="form-control" name="nameCard" placeholder="NAME AND SURNAME" required />
+                                </div>
+                            </div>
+                        </div>
+                        <input type="hidden" class="form-control" name="ProductID" value="@ViewBag.ProductID" />
+                        <div asp-validation-summary="All" class="text-danger"></div>
+                        <div class="row">
+                            <div class="col-12">
+                           @* <button type="submit" class="btn btn-primary">Make a payment!</button> *@
+                                <a class="btn btn-primary" href="/Sales/PurchaseSuccessful/@ViewBag.ProductID">Make a payment!</a>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+
+            </div>
+
+
+
+
+
+
+        </div>
+    </div>
+</div>
+
+
+
+

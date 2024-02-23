@@ -1,0 +1,42 @@
+﻿@using EntityLayer.Concrete
+@model Company
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_CompanyLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="ibox ">
+            <div class="ibox-title">
+                <h5>Company Information</h5>
+                <h6 style="color:red">Attention! The information contained here cannot be changed!</h6>
+            </div>
+            <div class="ibox-content">
+                @using (Html.BeginForm("", ""))
+                {
+                    @Html.HiddenFor(x => x.CompanyID, new { @class = "form-control" })
+                    @Html.HiddenFor(x => x.AppUserID, new { @class = "form-control" })
+
+                    <label>Company Name</label> @Html.TextBoxFor(x => x.CompanyName, new { @class = "form-control", @placeholder = "Company Name", @readonly=""})
+                    <br />
+
+                    <label>Country</label> @Html.TextBoxFor(x => x.Country, new { @class = "form-control", @placeholder = "Country", @readonly = "" })
+                    <br />
+
+                    <label>City</label> @Html.TextBoxFor(x => x.City, new { @class = "form-control", @placeholder = "City", @readonly = "" })
+                    <br />
+
+                    <label>Email</label> @Html.TextBoxFor(x => x.CompanyMail, new { @class = "form-control", @placeholder = "Company Mail", @readonly = "" })
+                    <br />
+
+                    <label>PhoneNumber</label> @Html.TextBoxFor(x => x.CompanyPhoneNumber, new { @class = "form-control", @placeholder = "Company Phone", @readonly = "" })
+              
+
+                }
+
+            </div>
+        </div>
+    </div>
+</div>
+
